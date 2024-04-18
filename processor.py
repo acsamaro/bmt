@@ -75,3 +75,27 @@ def process_queries(xml_path, dtd_path, path):
         logger.info("Consultas processadas com sucesso em {:.2f} segundos.".format(time.time() - start_time))
     except Exception as e:
         logger.error(f"Erro ao processar consultas: {e}")
+
+
+import xml.etree.ElementTree as ET
+
+def process_cf_xml(file_path):
+    tree = ET.parse(file_path)
+    root = tree.getroot()
+
+    extracted_data = []
+    for document in root.findall('.//Document'):
+        doc_id = document.get('id')
+        title = document.find('Title').text if document.find('Title') is not None else 'No Title'
+        abstract = document.find('Abstract').text if document.find('Abstract') is not None else 'No Abstract'
+
+        extracted_data.append({
+            'DocumentID': doc_id,
+            'Title': title,
+            'Abstract': abstract
+        })
+    return extracted_data
+
+file_path = '/data/cf77.xml'
+data = process_cf_xml(file_path)
+print(data)
