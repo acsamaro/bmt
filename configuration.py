@@ -8,6 +8,7 @@ def check_file_exists(file_path):
     return True
 
 def read_and_process_config(file_path):
+    #TODO: Implementar corretamente
     config = {}
     with open(file_path, 'r') as file:
         for line in file:

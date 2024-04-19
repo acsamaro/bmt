@@ -22,6 +22,7 @@ def validate_xml(xml_path, dtd_path):
         print("Validation failed:", dtd.error_log.filter_from_errors())
 
     return is_valid
+
 def process_query_file(xml_path):
     tree = ET.parse(xml_path)
     root = tree.getroot()
@@ -54,14 +55,6 @@ def process_query_file(xml_path):
     
     return df_queries, df_results
 
-# Paths to the XML and DTD files
-xml_path = './data/cfquery.xml'
-dtd_path = './data/cfcquery-2.dtd'
-path = './data/'
-
-
-
-
 def process_queries(xml_path, dtd_path, path):
     logger = log.setup_logger()
     try:
@@ -76,26 +69,41 @@ def process_queries(xml_path, dtd_path, path):
     except Exception as e:
         logger.error(f"Erro ao processar consultas: {e}")
 
-
-import xml.etree.ElementTree as ET
-
-def process_cf_xml(file_path):
-    tree = ET.parse(file_path)
+def parse_xml_to_structured_data(xml_path):
+    tree = ET.parse(xml_path)
     root = tree.getroot()
 
-    extracted_data = []
-    for document in root.findall('.//Document'):
-        doc_id = document.get('id')
-        title = document.find('Title').text if document.find('Title') is not None else 'No Title'
-        abstract = document.find('Abstract').text if document.find('Abstract') is not None else 'No Abstract'
+    records = []
 
-        extracted_data.append({
-            'DocumentID': doc_id,
-            'Title': title,
-            'Abstract': abstract
-        })
-    return extracted_data
+    for record in root.findall('.//RECORD'):
+        record_num = record.find('.//RECORDNUM').text if record.find('.//RECORDNUM') is not None else ''
+        summary = record.find('.//ABSTRACT') if record.find('.//ABSTRACT') is not None else record.find('.//EXTRACT')
+        abstract = summary.text.strip() if summary is not None else ''
+        
+        record_data = {
+            'Record Number': record_num,
+            'Abstract': abstract,
+        }
+        records.append(record_data)
+    return records
 
-file_path = '/data/cf77.xml'
-data = process_cf_xml(file_path)
+def process_cf(xml_path, dtd_path, path):
+    logger = log.setup_logger()
+    try:
+        logger.info("Processando cf.") #TODO: Ajeitar pra printar cada arquivo processado
+        start_time = time.time()
+        if validate_xml(xml_path, dtd_path):
+            data = parse_xml_to_structured_data(xml_path)
+
+            generate_csv(data, path + 'cf.csv') #TODO: Ajeitar pra colocar o nome de cada arquivo processado
+        logger.info("Cf processado com sucesso em {:.2f} segundos.".format(time.time() - start_time))
+    except Exception as e:
+        logger.error(f"Erro ao processar cf: {e}")
+
+
+#TODO: apagar os testes
+xml_path = './data/cfquery.xml'
+dtd_path = './data/cfcquery-2.dtd'
+path = './data/'
+data = parse_xml_to_structured_data('./data/cf77.xml')
 print(data)
