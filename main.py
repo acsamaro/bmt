@@ -1,16 +1,14 @@
-from log import setup_logger
-import configuration
+import processor
+import generate_inv_list
+import indexer
+import searcher
 
-
-log = setup_logger()
 
 def main():
-    # Configura o logger
-    logger = log.setup_logger()
-
-    # Lê as configurações
-    config = configuration.read('path/to/your/PC.CFG')
-    print(config)
+    processor.main()
+    generate_inv_list.main()
+    indexer.main()
+    searcher.main()
 
 if __name__ == "__main__":
     main()

@@ -1,19 +1,27 @@
 import re
 import time
-import log
 import xml.etree.ElementTree as ET
 import nltk
 from nltk.corpus import stopwords
-
 from manager import append_dict_list, dict_list_to_csv
-from processor import generate_csv, validate_xml
+from processor import validate_xml
+import time
+import log
 
-# import nltk
-
-# nltk.download('stopwords')
-# nltk.download('punkt')
 stop_words = stopwords.words('english')
 stop_words.extend(["et", "al"])
+
+
+def read_config(path):
+    config = {'leia': [], 'escreva': None}
+    with open(path, 'r') as file:
+        for line in file:
+            if line.startswith('LEIA'):
+                config['leia'].append(line.strip().split('=')[1].replace('>', '').replace('<', ''))
+            elif line.startswith('ESCREVA'):
+                config['escreva'] = line.strip().split('=')[1].replace('>', '').replace('<', '')
+    return config
+
 
 def process_words(d:dict, words:list[str], doc_id:int):
     for word in words:
@@ -32,7 +40,7 @@ def parse_xml_to_structured_data(records:dict, xml_path:str):
     root = tree.getroot()
 
     for record in root.findall('.//RECORD'):
-        record_num = record.find('.//RECORDNUM').text
+        record_num = record.find('.//RECORDNUM').text.strip()
         abstract = record.find('.//ABSTRACT')
         extract = record.find('.//EXTRACT')
         if abstract is not None:
@@ -44,19 +52,6 @@ def parse_xml_to_structured_data(records:dict, xml_path:str):
         records[record_num] = tokenize(summary)
     return records
 
-def process_cf(xml_path, dtd_path, path):
-    logger = log.setup_logger()
-    try:
-        logger.info("Processando cf.") #TODO: Ajeitar pra printar cada arquivo processado
-        start_time = time.time()
-        if validate_xml(xml_path, dtd_path):
-            data = parse_xml_to_structured_data(xml_path)
-
-            generate_csv(data, path + 'cf.csv') #TODO: Ajeitar pra colocar o nome de cada arquivo processado
-        logger.info("Cf processado com sucesso em {:.2f} segundos.".format(time.time() - start_time))
-    except Exception as e:
-        logger.error(f"Erro ao processar cf: {e}")
-
 
 def create_inverted_index(docs:dict):
     inverted_index = {}
@@ -66,7 +61,50 @@ def create_inverted_index(docs:dict):
 
 
 def inv_list(docs, path):
-    #TODO: Add Log
     inverted_index = create_inverted_index(docs)
     dict_list_to_csv(inverted_index, path)
     return inverted_index
+
+
+def process_cf(records, xml_path, dtd_path, logger):
+    try:
+        start_time = time.time()
+        if validate_xml(xml_path, dtd_path, logger):
+            records = parse_xml_to_structured_data(records, xml_path)
+        logger.info(f"Arquivo processado em {time.time() - start_time:.2f} segundos.")
+        return records
+    except Exception as e:
+        logger.error(f"Erro ao processar {xml_path}: {e}")
+
+
+def main():
+    logger = log.setup_logger('gli', 'gli.log')
+    start_time = time.time()
+
+    config_path = './instructions/GLI.CFG'
+    path = './data/'
+    config = read_config(config_path)
+    dtd_path = path + 'cfc-2.dtd'
+    output_path = path + config['escreva']
+
+    records = {}
+    for file_name in config['leia']:
+        logger.info("Processando o arquivo {0}.".format(file_name))
+        xml_path = path + file_name
+        records = process_cf(records, xml_path, dtd_path, logger)
+    logger.info(f"Arquivos processados em {time.time() - start_time:.2f} segundos.")
+    logger.info("Numero de documentos processads:{}".format(len(records.keys())))
+
+
+
+    inverted_index = create_inverted_index(records)
+    dict_list_to_csv(inverted_index, output_path)
+
+    logger.info(f"Lista invertida salva em {config['escreva']}")
+    logger.info(f"GLI finalizado em {time.time() - start_time:.2f} segundos.")
+
+
+
+if __name__ == "__main__":
+    main()
+

@@ -1,30 +1,11 @@
 import csv
-from collections import defaultdict
+import time
 import numpy as np
-from itertools import combinations
+from configuration import read
 from generate_inv_list import tokenize
+from manager import csv_to_dict_dict
+import log
 
-
-def csv_to_dict_dict(filename):
-    d = defaultdict(dict)
-    with open(filename, mode='r', newline='', encoding='utf-8') as file:
-        reader = csv.DictReader(file, delimiter=';')
-        columns = reader.fieldnames
-        for row in reader:
-            key1 = row[columns[0]].strip()
-            key2 = row[columns[1]].strip()
-            value = float(row[columns[2]].strip())
-            d[key1][key2] = value
-    return d
-
-def get_all_docs(filename):
-    docs_ids = []
-    with open(filename, mode='r', newline='', encoding='utf-8') as file:
-        reader = csv.DictReader(file, delimiter=';')
-        columns = reader.fieldnames
-        for row in reader:
-            docs_ids.append(row[columns[1]].strip())
-    return set(docs_ids)
 
 def read_queries(filename):
     queries = {}
@@ -35,6 +16,16 @@ def read_queries(filename):
             query_id, query_text = row
             queries[query_id] = tokenize(query_text)
     return queries
+
+
+def get_all_docs(filename):
+    docs_ids = []
+    with open(filename, mode='r', newline='', encoding='utf-8') as file:
+        reader = csv.DictReader(file, delimiter=';')
+        columns = reader.fieldnames
+        for row in reader:
+            docs_ids.append(row[columns[1]].strip())
+    return set(docs_ids)
 
 
 def cosine_similarity(vector_a, vector_b):
@@ -50,29 +41,6 @@ def cosine_similarity(vector_a, vector_b):
         return 0
     return dot_product / (norm_a * norm_b)
 
-
-def compare_all_documents(doc_vectors):
-    results = defaultdict(dict)
-
-    for doc_id1, doc_id2 in combinations(doc_vectors.keys(), 2):
-        sim = cosine_similarity(doc_vectors[doc_id1], doc_vectors[doc_id2])
-        results[doc_id1][doc_id2] = sim
-    return results
-
-
-def process_queries_and_calculate_similarities(queries, doc_vectors):
-    results = {}
-    for query_id, query_text in queries.items():
-        similarities = []
-        for doc_id, doc_vector in doc_vectors.items():
-            sim = cosine_similarity(query_text, doc_vector)
-            similarities.append((sim, doc_id))
-        # Ordena os documentos pela similaridade (decrescente)
-        similarities.sort(reverse=True, key=lambda x: x[0])
-        # Formata a saída como uma lista de rankings
-        formatted_results = [(idx + 1, sim[1], sim[0]) for idx, sim in enumerate(similarities)]
-        results[query_id] = formatted_results
-    return results
 
 def save_results_to_csv(results, output_filename):
     """ Salva os resultados formatados em um arquivo CSV. """
@@ -109,13 +77,34 @@ def write_rankings_to_csv(similarities, output_filename):
         writer.writerow(['QueryNumber', 'Ranking', 'Doc', 'Similarity'])
         
         for query_id, docs in similarities.items():
-            sorted_docs = sorted(docs.items(), key=lambda x: x[1], reverse=True)  # Ordena os documentos por similaridade, descendente
+            sorted_docs = sorted(docs.items(), key=lambda x: x[1], reverse=True)
             for rank, (doc_id, similarity) in enumerate(sorted_docs, start=1):
                 writer.writerow([query_id, rank, doc_id, similarity])
 
-filename = './data/tfidf.csv'
-doc_vectors = csv_to_dict_dict(filename)
-queries = read_queries('./data/consultas.csv')
-# similarities = compare_all_documents(doc_vectors)
-similarities = create_vector_weights(queries, doc_vectors)
-write_rankings_to_csv(similarities, './data/output.csv')
+
+def searcher(queries, vector_model):
+    similarities = create_vector_weights(queries, vector_model)
+    write_rankings_to_csv(similarities, './data/output.csv')
+
+
+def main():
+    logger = log.setup_logger('search', 'search.log')
+    start_time = time.time()
+    logger.info("Inicio do Buscador")
+    config = read('./instructions/BUSCA.CFG', logger)
+    path = './data/'
+    vector_model_path = path + config['modelo']
+    queries_path = path + config['consultas']
+
+    vector_model = csv_to_dict_dict(vector_model_path)
+    queries = read_queries(queries_path)
+    logger.info("Aquivos lidos {} e {}.".format(config['modelo'], config['consultas']))
+    start_time_searcher = time.time()
+    logger.info("Calculo de similaridade iniciado em {:.2f} segundos.".format(start_time_searcher))
+    searcher(queries, vector_model)
+    logger.info("Calculo de similaridade finalizado em {:.2f} segundos.".format(time.time()- start_time_searcher))
+    logger.info("Buscador finalizado em {:.2f} segundos.".format(time.time() - start_time))
+
+
+if __name__ == "__main__":
+    main()
