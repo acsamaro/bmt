@@ -1,12 +1,11 @@
 import re
-import csv
 import time
 import log
-import pandas as pd
 import xml.etree.ElementTree as ET
 import nltk
 from nltk.corpus import stopwords
 
+from manager import append_dict_list, dict_list_to_csv
 from processor import generate_csv, validate_xml
 
 # import nltk
@@ -15,24 +14,6 @@ from processor import generate_csv, validate_xml
 # nltk.download('punkt')
 stop_words = stopwords.words('english')
 stop_words.extend(["et", "al"])
-
-
-def csv_to_dict(file_path, key_name, value_name):
-    d = {}
-    with open(file_path, mode='r', newline='', encoding='utf-8') as csvfile:
-        reader = csv.DictReader(csvfile, delimiter=';')
-        next(reader)
-        for row in reader:
-            key = row[key_name].strip()
-            value = row[value_name].strip()
-            d[key] = value
-    return d
-
-
-def append_dict_list(d:dict, key:str, value:int):
-    if (key not in d):
-        d[key] = []
-    d[key].append(value)
 
 def process_words(d:dict, words:list[str], doc_id:int):
     for word in words:
@@ -49,7 +30,6 @@ def tokenize(text:str):
 def parse_xml_to_structured_data(records:dict, xml_path:str):
     tree = ET.parse(xml_path)
     root = tree.getroot()
-
 
     for record in root.findall('.//RECORD'):
         record_num = record.find('.//RECORDNUM').text
@@ -84,11 +64,6 @@ def create_inverted_index(docs:dict):
         inverted_index = process_words(inverted_index, tokens, doc_id)    
     return inverted_index
 
-def dict_list_to_csv(d: dict, path:str):
-     with open(path, 'w', newline='') as csvfile:
-        writer = csv.writer(csvfile, delimiter=';', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-        for key, value in d.items():
-                writer.writerow([key.upper(), str(value)])
 
 def inv_list(docs, path):
     #TODO: Add Log
