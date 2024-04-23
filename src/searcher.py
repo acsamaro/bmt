@@ -82,9 +82,9 @@ def write_rankings_to_csv(similarities, output_filename):
                 writer.writerow([query_id, rank, doc_id, similarity])
 
 
-def searcher(queries, vector_model):
+def searcher(queries, vector_model, output_path):
     similarities = create_vector_weights(queries, vector_model)
-    write_rankings_to_csv(similarities, './data/output.csv')
+    write_rankings_to_csv(similarities, output_path)
 
 
 def main():
@@ -92,7 +92,7 @@ def main():
     start_time = time.time()
     logger.info("Inicio do Buscador")
     config = read('./instructions/BUSCA.CFG', logger)
-    path = './data/'
+    path = './results/'
     vector_model_path = path + config['modelo']
     queries_path = path + config['consultas']
 
@@ -100,8 +100,8 @@ def main():
     queries = read_queries(queries_path)
     logger.info("Aquivos lidos {} e {}.".format(config['modelo'], config['consultas']))
     start_time_searcher = time.time()
-    logger.info("Calculo de similaridade iniciado em {:.2f} segundos.".format(start_time_searcher))
-    searcher(queries, vector_model)
+    logger.info("Calculo de similaridade iniciado.")
+    searcher(queries, vector_model, path+config['resultados'])
     logger.info("Calculo de similaridade finalizado em {:.2f} segundos.".format(time.time()- start_time_searcher))
     logger.info("Buscador finalizado em {:.2f} segundos.".format(time.time() - start_time))
 

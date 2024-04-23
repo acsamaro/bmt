@@ -84,8 +84,8 @@ def main():
     config_path = './instructions/GLI.CFG'
     path = './data/'
     config = read_config(config_path)
+    output_path = './results/' + config['escreva']
     dtd_path = path + 'cfc-2.dtd'
-    output_path = path + config['escreva']
 
     records = {}
     for file_name in config['leia']:
@@ -94,8 +94,6 @@ def main():
         records = process_cf(records, xml_path, dtd_path, logger)
     logger.info(f"Arquivos processados em {time.time() - start_time:.2f} segundos.")
     logger.info("Numero de documentos processads:{}".format(len(records.keys())))
-
-
 
     inverted_index = create_inverted_index(records)
     dict_list_to_csv(inverted_index, output_path)

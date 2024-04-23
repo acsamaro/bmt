@@ -3,7 +3,6 @@ import generate_inv_list
 import indexer
 import searcher
 
-
 def main():
     processor.main()
     generate_inv_list.main()

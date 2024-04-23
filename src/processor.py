@@ -62,13 +62,14 @@ def process_queries(dtd_path, path):
         start_time = time.time()
         config = read('./instructions/PC.CFG', logger)
         xml_path = config['leia']
+        output_path = './results/'
         if validate_xml(path+xml_path, dtd_path, logger):
             logger.info("Processando consultas do arquivo {0}.".format(config['leia']))
             df_consultas, df_esperados = process_query_file(path+xml_path)
-            df_consultas.to_csv(path + config['consultas'], sep=';', encoding='utf-8', index=False)
-            df_esperados.to_csv(path + config['esperados'], sep=';', encoding='utf-8', index=False)
+            df_consultas.to_csv(output_path + config['consultas'], sep=';', encoding='utf-8', index=False)
+            df_esperados.to_csv(output_path + config['esperados'], sep=';', encoding='utf-8', index=False)
             logger.info("Numero de consultas processadas:{}".format(len(df_esperados)))
-            logger.info("Arquivos gerados: {} e {}".format(path+config['consultas'], path+config['esperados']))
+            logger.info("Arquivos gerados: {} e {}".format(output_path+config['consultas'], output_path+config['esperados']))
         logger.info("Processador finalizado em {:.2f} segundos.".format(time.time() - start_time))
     except Exception as e:
         logger.error(f"Erro ao processar consultas: {e}")

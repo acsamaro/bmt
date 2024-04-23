@@ -71,7 +71,7 @@ def main():
     logger.info("Inicio do indexador")
 
     start_time = time.time()
-    path = './data/'
+    path = './results/'
     config = read('./instructions/INDEX.CFG', logger)
     data = csv_to_dict_list(path+config['leia'])
     logger.info("Arquivo lido {0}.".format(config['leia']))
