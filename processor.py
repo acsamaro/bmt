@@ -1,11 +1,27 @@
+import csv
+import re
 import time
 from lxml import etree
 import xml.etree.ElementTree as ET
 import pandas as pd
 import log
+from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
 
-def generate_csv(data, output_path):
-    data.to_csv(output_path, sep=';', index=False, header=True)
+stop_words = set(stopwords.words('english'))
+
+def generate_csv(data, file_path): 
+    headers = data[0].keys() if data else []
+
+    with open(file_path, mode='w', newline='', encoding='utf-8') as file:
+        writer = csv.DictWriter(file, fieldnames=headers)
+
+        # Escrever o cabeçalho no arquivo CSV
+        writer.writeheader()
+
+        # Escrever os dados no arquivo CSV
+        for entry in data:
+            writer.writerow(entry)
 
 def validate_xml(xml_path, dtd_path):
     with open(dtd_path, 'rb') as f:
@@ -68,42 +84,3 @@ def process_queries(xml_path, dtd_path, path):
         logger.info("Consultas processadas com sucesso em {:.2f} segundos.".format(time.time() - start_time))
     except Exception as e:
         logger.error(f"Erro ao processar consultas: {e}")
-
-def parse_xml_to_structured_data(xml_path):
-    tree = ET.parse(xml_path)
-    root = tree.getroot()
-
-    records = []
-
-    for record in root.findall('.//RECORD'):
-        record_num = record.find('.//RECORDNUM').text if record.find('.//RECORDNUM') is not None else ''
-        summary = record.find('.//ABSTRACT') if record.find('.//ABSTRACT') is not None else record.find('.//EXTRACT')
-        abstract = summary.text.strip() if summary is not None else ''
-        
-        record_data = {
-            'Record Number': record_num,
-            'Abstract': abstract,
-        }
-        records.append(record_data)
-    return records
-
-def process_cf(xml_path, dtd_path, path):
-    logger = log.setup_logger()
-    try:
-        logger.info("Processando cf.") #TODO: Ajeitar pra printar cada arquivo processado
-        start_time = time.time()
-        if validate_xml(xml_path, dtd_path):
-            data = parse_xml_to_structured_data(xml_path)
-
-            generate_csv(data, path + 'cf.csv') #TODO: Ajeitar pra colocar o nome de cada arquivo processado
-        logger.info("Cf processado com sucesso em {:.2f} segundos.".format(time.time() - start_time))
-    except Exception as e:
-        logger.error(f"Erro ao processar cf: {e}")
-
-
-#TODO: apagar os testes
-xml_path = './data/cfquery.xml'
-dtd_path = './data/cfcquery-2.dtd'
-path = './data/'
-data = parse_xml_to_structured_data('./data/cf77.xml')
-print(data)
