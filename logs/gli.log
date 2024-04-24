@@ -1,0 +1,44 @@
+2024-04-23 19:54:42,555 - INFO - Processando o arquivo cf74.xml.
+2024-04-23 19:54:42,584 - INFO - The XML is valid according to the DTD.
+2024-04-23 19:54:42,741 - INFO - Arquivo processado em 0.19 segundos.
+2024-04-23 19:54:42,741 - INFO - Processando o arquivo cf75.xml.
+2024-04-23 19:54:42,773 - INFO - The XML is valid according to the DTD.
+2024-04-23 19:54:42,950 - INFO - Arquivo processado em 0.21 segundos.
+2024-04-23 19:54:42,951 - INFO - Processando o arquivo cf76.xml.
+2024-04-23 19:54:42,999 - INFO - The XML is valid according to the DTD.
+2024-04-23 19:54:43,340 - INFO - Arquivo processado em 0.39 segundos.
+2024-04-23 19:54:43,340 - INFO - Processando o arquivo cf77.xml.
+2024-04-23 19:54:43,376 - INFO - The XML is valid according to the DTD.
+2024-04-23 19:54:43,568 - INFO - Arquivo processado em 0.23 segundos.
+2024-04-23 19:54:43,568 - INFO - Processando o arquivo cf78.xml.
+2024-04-23 19:54:43,604 - INFO - The XML is valid according to the DTD.
+2024-04-23 19:54:43,782 - INFO - Arquivo processado em 0.21 segundos.
+2024-04-23 19:54:43,782 - INFO - Processando o arquivo cf79.xml.
+2024-04-23 19:54:43,826 - INFO - The XML is valid according to the DTD.
+2024-04-23 19:54:44,068 - INFO - Arquivo processado em 0.28 segundos.
+2024-04-23 19:54:44,068 - INFO - Arquivos processados em 1.51 segundos.
+2024-04-23 19:54:44,068 - INFO - Numero de documentos processads:1215
+2024-04-23 19:54:44,281 - INFO - Lista invertida salva em lista_invertida.csv
+2024-04-23 19:54:44,282 - INFO - GLI finalizado em 1.73 segundos.
+2024-04-23 20:03:20,644 - INFO - Processando o arquivo cf74.xml.
+2024-04-23 20:03:20,670 - INFO - The XML is valid according to the DTD.
+2024-04-23 20:03:20,830 - INFO - Arquivo processado em 0.19 segundos.
+2024-04-23 20:03:20,830 - INFO - Processando o arquivo cf75.xml.
+2024-04-23 20:03:20,862 - INFO - The XML is valid according to the DTD.
+2024-04-23 20:03:21,037 - INFO - Arquivo processado em 0.21 segundos.
+2024-04-23 20:03:21,038 - INFO - Processando o arquivo cf76.xml.
+2024-04-23 20:03:21,087 - INFO - The XML is valid according to the DTD.
+2024-04-23 20:03:21,310 - INFO - Arquivo processado em 0.27 segundos.
+2024-04-23 20:03:21,311 - INFO - Processando o arquivo cf77.xml.
+2024-04-23 20:03:21,347 - INFO - The XML is valid according to the DTD.
+2024-04-23 20:03:21,529 - INFO - Arquivo processado em 0.22 segundos.
+2024-04-23 20:03:21,529 - INFO - Processando o arquivo cf78.xml.
+2024-04-23 20:03:21,557 - INFO - The XML is valid according to the DTD.
+2024-04-23 20:03:21,723 - INFO - Arquivo processado em 0.19 segundos.
+2024-04-23 20:03:21,723 - INFO - Processando o arquivo cf79.xml.
+2024-04-23 20:03:21,759 - INFO - The XML is valid according to the DTD.
+2024-04-23 20:03:21,996 - INFO - Arquivo processado em 0.27 segundos.
+2024-04-23 20:03:21,996 - INFO - Arquivos processados em 1.35 segundos.
+2024-04-23 20:03:21,996 - INFO - Numero de documentos processads:1215
+2024-04-23 20:03:22,208 - INFO - Lista invertida salva em lista_invertida.csv
+2024-04-23 20:03:22,208 - INFO - GLI finalizado em 1.56 segundos.

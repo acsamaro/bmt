@@ -1,0 +1,14 @@
+2024-04-23 19:54:44,721 - INFO - Inicio do Buscador
+2024-04-23 19:54:44,721 - INFO - Iniciando a leitura do arquivo de configuracao ./instructions/BUSCA.CFG
+2024-04-23 19:54:44,721 - INFO - Arquivo de configuracao lido com sucesso em 0.00 segundos.
+2024-04-23 19:54:45,360 - INFO - Aquivos lidos modelo_vetorial.csv e consultas.csv.
+2024-04-23 19:54:45,361 - INFO - Calculo de similaridade iniciado.
+2024-04-23 19:54:49,678 - INFO - Calculo de similaridade finalizado em 4.32 segundos.
+2024-04-23 19:54:49,678 - INFO - Buscador finalizado em 4.96 segundos.
+2024-04-23 20:03:22,626 - INFO - Inicio do Buscador
+2024-04-23 20:03:22,626 - INFO - Iniciando a leitura do arquivo de configuracao ./instructions/BUSCA.CFG
+2024-04-23 20:03:22,627 - INFO - Arquivo de configuracao lido com sucesso em 0.00 segundos.
+2024-04-23 20:03:23,231 - INFO - Aquivos lidos modelo_vetorial.csv e consultas.csv.
+2024-04-23 20:03:23,231 - INFO - Calculo de similaridade iniciado.
+2024-04-23 20:03:27,377 - INFO - Calculo de similaridade finalizado em 4.15 segundos.
+2024-04-23 20:03:27,377 - INFO - Buscador finalizado em 4.75 segundos.

@@ -1,0 +1,12 @@
+2024-04-23 19:54:44,286 - INFO - Inicio do indexador
+2024-04-23 19:54:44,286 - INFO - Iniciando a leitura do arquivo de configuracao ./instructions/INDEX.CFG
+2024-04-23 19:54:44,286 - INFO - Arquivo de configuracao lido com sucesso em 0.00 segundos.
+2024-04-23 19:54:44,332 - INFO - Arquivo lido lista_invertida.csv.
+2024-04-23 19:54:44,713 - INFO - TFIDF processados e salvos em modelo_vetorial.csv.
+2024-04-23 19:54:44,713 - INFO - Indexador finalizado em 0.43 segundos.
+2024-04-23 20:03:22,212 - INFO - Inicio do indexador
+2024-04-23 20:03:22,212 - INFO - Iniciando a leitura do arquivo de configuracao ./instructions/INDEX.CFG
+2024-04-23 20:03:22,213 - INFO - Arquivo de configuracao lido com sucesso em 0.00 segundos.
+2024-04-23 20:03:22,252 - INFO - Arquivo lido lista_invertida.csv.
+2024-04-23 20:03:22,619 - INFO - TFIDF processados e salvos em modelo_vetorial.csv.
+2024-04-23 20:03:22,619 - INFO - Indexador finalizado em 0.41 segundos.
