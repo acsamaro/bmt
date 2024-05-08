@@ -10,3 +10,69 @@
 2024-04-23 20:03:22,252 - INFO - Arquivo lido lista_invertida.csv.
 2024-04-23 20:03:22,619 - INFO - TFIDF processados e salvos em modelo_vetorial.csv.
 2024-04-23 20:03:22,619 - INFO - Indexador finalizado em 0.41 segundos.
+2024-05-07 19:18:40,767 - INFO - Inicio do indexador
+2024-05-07 19:18:40,767 - INFO - Iniciando a leitura do arquivo de configuracao ./instructions/INDEX.CFG
+2024-05-07 19:18:40,772 - INFO - Arquivo de configuracao lido com sucesso em 0.00 segundos.
+2024-05-07 19:18:40,806 - INFO - Arquivo lido lista_invertida.csv.
+2024-05-07 19:18:40,993 - INFO - TFIDF processados e salvos em modelo_vetorial.csv.
+2024-05-07 19:18:40,993 - INFO - Indexador finalizado em 0.23 segundos.
+2024-05-07 20:17:32,221 - INFO - Inicio do indexador
+2024-05-07 20:17:32,222 - INFO - Iniciando a leitura do arquivo de configuracao ./instructions/INDEX.CFG
+2024-05-07 20:17:32,222 - INFO - Arquivo de configuracao lido com sucesso em 0.00 segundos.
+2024-05-07 20:17:32,253 - INFO - Arquivo lido lista_invertida.csv.
+2024-05-07 20:17:32,441 - INFO - TFIDF processados e salvos em modelo_vetorial.csv.
+2024-05-07 20:17:32,442 - INFO - Indexador finalizado em 0.22 segundos.
+2024-05-07 20:19:24,537 - INFO - Inicio do indexador
+2024-05-07 20:19:24,537 - INFO - Iniciando a leitura do arquivo de configuracao ./instructions/INDEX.CFG
+2024-05-07 20:19:24,537 - INFO - Arquivo de configuracao lido com sucesso em 0.00 segundos.
+2024-05-07 20:19:24,569 - INFO - Arquivo lido lista_invertida.csv.
+2024-05-07 20:19:24,758 - INFO - TFIDF processados e salvos em modelo_vetorial.csv.
+2024-05-07 20:19:24,758 - INFO - Indexador finalizado em 0.22 segundos.
+2024-05-07 20:52:54,470 - INFO - Inicio do indexador
+2024-05-07 20:52:54,471 - INFO - Iniciando a leitura do arquivo de configuracao ./instructions/INDEX.CFG
+2024-05-07 20:52:54,471 - INFO - Arquivo de configuracao lido com sucesso em 0.00 segundos.
+2024-05-07 20:52:54,505 - INFO - Arquivo lido lista_invertida.csv.
+2024-05-07 20:52:54,692 - INFO - TFIDF processados e salvos em modelo_vetorial.csv.
+2024-05-07 20:52:54,692 - INFO - Indexador finalizado em 0.22 segundos.
+2024-05-07 20:55:00,508 - INFO - Inicio do indexador
+2024-05-07 20:55:00,509 - INFO - Iniciando a leitura do arquivo de configuracao ./instructions/INDEX.CFG
+2024-05-07 20:55:00,509 - INFO - Arquivo de configuracao lido com sucesso em 0.00 segundos.
+2024-05-07 20:55:00,545 - INFO - Arquivo lido lista_invertida.csv.
+2024-05-07 20:55:00,731 - INFO - TFIDF processados e salvos em modelo_vetorial.csv.
+2024-05-07 20:55:00,731 - INFO - Indexador finalizado em 0.22 segundos.
+2024-05-07 20:57:08,951 - INFO - Inicio do indexador
+2024-05-07 20:57:08,951 - INFO - Iniciando a leitura do arquivo de configuracao ./instructions/INDEX.CFG
+2024-05-07 20:57:08,952 - INFO - Arquivo de configuracao lido com sucesso em 0.00 segundos.
+2024-05-07 20:57:08,990 - INFO - Arquivo lido lista_invertida.csv.
+2024-05-07 20:57:09,189 - INFO - TFIDF processados e salvos em modelo_vetorial.csv.
+2024-05-07 20:57:09,189 - INFO - Indexador finalizado em 0.24 segundos.
+2024-05-07 21:50:47,620 - INFO - Inicio do indexador
+2024-05-07 21:50:47,620 - INFO - Iniciando a leitura do arquivo de configuracao ./instructions/INDEX.CFG
+2024-05-07 21:50:47,621 - INFO - Arquivo de configuracao lido com sucesso em 0.00 segundos.
+2024-05-07 21:50:47,657 - INFO - Arquivo lido lista_invertida.csv.
+2024-05-07 21:50:47,844 - INFO - TFIDF processados e salvos em modelo_vetorial.csv.
+2024-05-07 21:50:47,844 - INFO - Indexador finalizado em 0.22 segundos.
+2024-05-07 21:54:34,036 - INFO - Inicio do indexador
+2024-05-07 21:54:34,036 - INFO - Iniciando a leitura do arquivo de configuracao ./instructions/INDEX.CFG
+2024-05-07 21:54:34,036 - INFO - Arquivo de configuracao lido com sucesso em 0.00 segundos.
+2024-05-07 21:54:34,071 - INFO - Arquivo lido lista_invertida.csv.
+2024-05-07 21:54:34,256 - INFO - TFIDF processados e salvos em modelo_vetorial.csv.
+2024-05-07 21:54:34,256 - INFO - Indexador finalizado em 0.22 segundos.
+2024-05-07 21:55:46,450 - INFO - Inicio do indexador
+2024-05-07 21:55:46,450 - INFO - Iniciando a leitura do arquivo de configuracao ./instructions/INDEX.CFG
+2024-05-07 21:55:46,450 - INFO - Arquivo de configuracao lido com sucesso em 0.00 segundos.
+2024-05-07 21:55:46,486 - INFO - Arquivo lido lista_invertida.csv.
+2024-05-07 21:55:46,678 - INFO - TFIDF processados e salvos em modelo_vetorial.csv.
+2024-05-07 21:55:46,678 - INFO - Indexador finalizado em 0.23 segundos.
+2024-05-07 21:56:59,344 - INFO - Inicio do indexador
+2024-05-07 21:56:59,344 - INFO - Iniciando a leitura do arquivo de configuracao ./instructions/INDEX.CFG
+2024-05-07 21:56:59,344 - INFO - Arquivo de configuracao lido com sucesso em 0.00 segundos.
+2024-05-07 21:56:59,375 - INFO - Arquivo lido lista_invertida.csv.
+2024-05-07 21:56:59,546 - INFO - TFIDF processados e salvos em modelo_vetorial.csv.
+2024-05-07 21:56:59,546 - INFO - Indexador finalizado em 0.20 segundos.
+2024-05-07 21:57:33,060 - INFO - Inicio do indexador
+2024-05-07 21:57:33,061 - INFO - Iniciando a leitura do arquivo de configuracao ./instructions/INDEX.CFG
+2024-05-07 21:57:33,061 - INFO - Arquivo de configuracao lido com sucesso em 0.00 segundos.
+2024-05-07 21:57:33,091 - INFO - Arquivo lido lista_invertida.csv.
+2024-05-07 21:57:33,261 - INFO - TFIDF processados e salvos em modelo_vetorial.csv.
+2024-05-07 21:57:33,262 - INFO - Indexador finalizado em 0.20 segundos.

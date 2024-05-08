@@ -1,20 +1,26 @@
 import csv
 import time
 import numpy as np
-from configuration import read
+from configuration import is_stemmer, read
 from generate_inv_list import tokenize
 from manager import csv_to_dict_dict
 import log
+from nltk.stem import PorterStemmer
 
 
-def read_queries(filename):
+
+def read_queries(filename, is_stemmer=False):
     queries = {}
     with open(filename, 'r', newline='', encoding='utf-8') as file:
         reader = csv.reader(file, delimiter=';')
         next(reader)
         for row in reader:
             query_id, query_text = row
-            queries[query_id] = tokenize(query_text)
+            tokens = tokenize(query_text)
+            if is_stemmer:
+                stemmer = PorterStemmer()
+                tokens=[stemmer.stem(token).upper() for token in tokens]
+            queries[query_id] = tokens
     return queries
 
 
@@ -43,7 +49,6 @@ def cosine_similarity(vector_a, vector_b):
 
 
 def save_results_to_csv(results, output_filename):
-    """ Salva os resultados formatados em um arquivo CSV. """
     with open(output_filename, 'w', newline='') as csvfile:
         writer = csv.writer(csvfile, delimiter=';')
         writer.writerow(['QueryNumber', 'Ranking', 'Doc', 'Similaridade'])
@@ -97,11 +102,12 @@ def main():
     queries_path = path + config['consultas']
 
     vector_model = csv_to_dict_dict(vector_model_path)
-    queries = read_queries(queries_path)
+    queries = read_queries(queries_path, is_stemmer=is_stemmer(config))
     logger.info("Aquivos lidos {} e {}.".format(config['modelo'], config['consultas']))
     start_time_searcher = time.time()
     logger.info("Calculo de similaridade iniciado.")
-    searcher(queries, vector_model, path+config['resultados'])
+    output_path = path + config['resultados'].split('.')[0] + '-' + config['stemmer'].upper() + '.' + config['resultados'].split('.')[1]
+    searcher(queries, vector_model, output_path)
     logger.info("Calculo de similaridade finalizado em {:.2f} segundos.".format(time.time()- start_time_searcher))
     logger.info("Buscador finalizado em {:.2f} segundos.".format(time.time() - start_time))
 

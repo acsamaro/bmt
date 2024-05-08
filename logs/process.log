@@ -12,3 +12,94 @@
 2024-04-23 20:03:20,642 - INFO - Numero de consultas processadas:4820
 2024-04-23 20:03:20,643 - INFO - Arquivos gerados: ./results/consultas.csv e ./results/esperados.csv
 2024-04-23 20:03:20,643 - INFO - Processador finalizado em 0.06 segundos.
+2024-05-07 19:18:23,150 - INFO - Iniciando a leitura do arquivo de configuracao ./instructions/PC.CFG
+2024-05-07 19:18:23,154 - INFO - Arquivo de configuracao lido com sucesso em 0.00 segundos.
+2024-05-07 19:18:23,174 - INFO - The XML is valid according to the DTD.
+2024-05-07 19:18:23,176 - INFO - Processando consultas do arquivo cfquery.xml.
+2024-05-07 19:18:23,199 - INFO - Numero de consultas processadas:4820
+2024-05-07 19:18:23,199 - INFO - Arquivos gerados: ./results/consultas.csv e ./results/esperados.csv
+2024-05-07 19:18:23,199 - INFO - Processador finalizado em 0.05 segundos.
+2024-05-07 19:18:39,380 - INFO - Iniciando a leitura do arquivo de configuracao ./instructions/PC.CFG
+2024-05-07 19:18:39,382 - INFO - Arquivo de configuracao lido com sucesso em 0.00 segundos.
+2024-05-07 19:18:39,389 - INFO - The XML is valid according to the DTD.
+2024-05-07 19:18:39,390 - INFO - Processando consultas do arquivo cfquery.xml.
+2024-05-07 19:18:39,411 - INFO - Numero de consultas processadas:4820
+2024-05-07 19:18:39,411 - INFO - Arquivos gerados: ./results/consultas.csv e ./results/esperados.csv
+2024-05-07 19:18:39,411 - INFO - Processador finalizado em 0.03 segundos.
+2024-05-07 20:16:45,417 - INFO - Iniciando a leitura do arquivo de configuracao ./instructions/PC.CFG
+2024-05-07 20:16:45,417 - INFO - Arquivo de configuracao lido com sucesso em 0.00 segundos.
+2024-05-07 20:16:45,424 - INFO - The XML is valid according to the DTD.
+2024-05-07 20:16:45,426 - INFO - Processando consultas do arquivo cfquery.xml.
+2024-05-07 20:16:45,446 - INFO - Numero de consultas processadas:4820
+2024-05-07 20:16:45,446 - INFO - Arquivos gerados: ./results/consultas.csv e ./results/esperados.csv
+2024-05-07 20:16:45,446 - INFO - Processador finalizado em 0.03 segundos.
+2024-05-07 20:17:30,969 - INFO - Iniciando a leitura do arquivo de configuracao ./instructions/PC.CFG
+2024-05-07 20:17:30,970 - INFO - Arquivo de configuracao lido com sucesso em 0.00 segundos.
+2024-05-07 20:17:30,977 - INFO - The XML is valid according to the DTD.
+2024-05-07 20:17:30,978 - INFO - Processando consultas do arquivo cfquery.xml.
+2024-05-07 20:17:30,998 - INFO - Numero de consultas processadas:4820
+2024-05-07 20:17:30,999 - INFO - Arquivos gerados: ./results/consultas.csv e ./results/esperados.csv
+2024-05-07 20:17:30,999 - INFO - Processador finalizado em 0.03 segundos.
+2024-05-07 20:19:23,257 - INFO - Iniciando a leitura do arquivo de configuracao ./instructions/PC.CFG
+2024-05-07 20:19:23,257 - INFO - Arquivo de configuracao lido com sucesso em 0.00 segundos.
+2024-05-07 20:19:23,264 - INFO - The XML is valid according to the DTD.
+2024-05-07 20:19:23,266 - INFO - Processando consultas do arquivo cfquery.xml.
+2024-05-07 20:19:23,286 - INFO - Numero de consultas processadas:4820
+2024-05-07 20:19:23,286 - INFO - Arquivos gerados: ./results/consultas.csv e ./results/esperados.csv
+2024-05-07 20:19:23,287 - INFO - Processador finalizado em 0.03 segundos.
+2024-05-07 20:52:53,188 - INFO - Iniciando a leitura do arquivo de configuracao ./instructions/PC.CFG
+2024-05-07 20:52:53,189 - INFO - Arquivo de configuracao lido com sucesso em 0.00 segundos.
+2024-05-07 20:52:53,196 - INFO - The XML is valid according to the DTD.
+2024-05-07 20:52:53,197 - INFO - Processando consultas do arquivo cfquery.xml.
+2024-05-07 20:52:53,217 - INFO - Numero de consultas processadas:4820
+2024-05-07 20:52:53,217 - INFO - Arquivos gerados: ./results/consultas.csv e ./results/esperados.csv
+2024-05-07 20:52:53,217 - INFO - Processador finalizado em 0.03 segundos.
+2024-05-07 20:54:59,194 - INFO - Iniciando a leitura do arquivo de configuracao ./instructions/PC.CFG
+2024-05-07 20:54:59,194 - INFO - Arquivo de configuracao lido com sucesso em 0.00 segundos.
+2024-05-07 20:54:59,202 - INFO - The XML is valid according to the DTD.
+2024-05-07 20:54:59,203 - INFO - Processando consultas do arquivo cfquery.xml.
+2024-05-07 20:54:59,227 - INFO - Numero de consultas processadas:4820
+2024-05-07 20:54:59,227 - INFO - Arquivos gerados: ./results/consultas.csv e ./results/esperados.csv
+2024-05-07 20:54:59,227 - INFO - Processador finalizado em 0.03 segundos.
+2024-05-07 20:57:07,671 - INFO - Iniciando a leitura do arquivo de configuracao ./instructions/PC.CFG
+2024-05-07 20:57:07,672 - INFO - Arquivo de configuracao lido com sucesso em 0.00 segundos.
+2024-05-07 20:57:07,679 - INFO - The XML is valid according to the DTD.
+2024-05-07 20:57:07,681 - INFO - Processando consultas do arquivo cfquery.xml.
+2024-05-07 20:57:07,700 - INFO - Numero de consultas processadas:4820
+2024-05-07 20:57:07,701 - INFO - Arquivos gerados: ./results/consultas.csv e ./results/esperados.csv
+2024-05-07 20:57:07,701 - INFO - Processador finalizado em 0.03 segundos.
+2024-05-07 21:50:46,366 - INFO - Iniciando a leitura do arquivo de configuracao ./instructions/PC.CFG
+2024-05-07 21:50:46,367 - INFO - Arquivo de configuracao lido com sucesso em 0.00 segundos.
+2024-05-07 21:50:46,374 - INFO - The XML is valid according to the DTD.
+2024-05-07 21:50:46,375 - INFO - Processando consultas do arquivo cfquery.xml.
+2024-05-07 21:50:46,395 - INFO - Numero de consultas processadas:4820
+2024-05-07 21:50:46,395 - INFO - Arquivos gerados: ./results/consultas.csv e ./results/esperados.csv
+2024-05-07 21:50:46,395 - INFO - Processador finalizado em 0.03 segundos.
+2024-05-07 21:54:32,634 - INFO - Iniciando a leitura do arquivo de configuracao ./instructions/PC.CFG
+2024-05-07 21:54:32,635 - INFO - Arquivo de configuracao lido com sucesso em 0.00 segundos.
+2024-05-07 21:54:32,643 - INFO - The XML is valid according to the DTD.
+2024-05-07 21:54:32,645 - INFO - Processando consultas do arquivo cfquery.xml.
+2024-05-07 21:54:32,669 - INFO - Numero de consultas processadas:4820
+2024-05-07 21:54:32,669 - INFO - Arquivos gerados: ./results/consultas.csv e ./results/esperados.csv
+2024-05-07 21:54:32,669 - INFO - Processador finalizado em 0.04 segundos.
+2024-05-07 21:55:45,161 - INFO - Iniciando a leitura do arquivo de configuracao ./instructions/PC.CFG
+2024-05-07 21:55:45,161 - INFO - Arquivo de configuracao lido com sucesso em 0.00 segundos.
+2024-05-07 21:55:45,168 - INFO - The XML is valid according to the DTD.
+2024-05-07 21:55:45,170 - INFO - Processando consultas do arquivo cfquery.xml.
+2024-05-07 21:55:45,190 - INFO - Numero de consultas processadas:4820
+2024-05-07 21:55:45,190 - INFO - Arquivos gerados: ./results/consultas.csv e ./results/esperados.csv
+2024-05-07 21:55:45,190 - INFO - Processador finalizado em 0.03 segundos.
+2024-05-07 21:56:55,948 - INFO - Iniciando a leitura do arquivo de configuracao ./instructions/PC.CFG
+2024-05-07 21:56:55,949 - INFO - Arquivo de configuracao lido com sucesso em 0.00 segundos.
+2024-05-07 21:56:55,956 - INFO - The XML is valid according to the DTD.
+2024-05-07 21:56:55,957 - INFO - Processando consultas do arquivo cfquery.xml.
+2024-05-07 21:56:55,977 - INFO - Numero de consultas processadas:4820
+2024-05-07 21:56:55,977 - INFO - Arquivos gerados: ./results/consultas.csv e ./results/esperados.csv
+2024-05-07 21:56:55,977 - INFO - Processador finalizado em 0.03 segundos.
+2024-05-07 21:57:30,364 - INFO - Iniciando a leitura do arquivo de configuracao ./instructions/PC.CFG
+2024-05-07 21:57:30,364 - INFO - Arquivo de configuracao lido com sucesso em 0.00 segundos.
+2024-05-07 21:57:30,371 - INFO - The XML is valid according to the DTD.
+2024-05-07 21:57:30,373 - INFO - Processando consultas do arquivo cfquery.xml.
+2024-05-07 21:57:30,392 - INFO - Numero de consultas processadas:4820
+2024-05-07 21:57:30,392 - INFO - Arquivos gerados: ./results/consultas.csv e ./results/esperados.csv
+2024-05-07 21:57:30,392 - INFO - Processador finalizado em 0.03 segundos.
