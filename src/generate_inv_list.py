@@ -3,33 +3,23 @@ import time
 import xml.etree.ElementTree as ET
 import nltk
 from nltk.corpus import stopwords
-from configuration import is_stemmer
 from manager import append_dict_list, dict_list_to_csv
 from processor import validate_xml
 import time
 import log
-from nltk.stem import PorterStemmer
-
 
 stop_words = stopwords.words('english')
 stop_words.extend(["et", "al"])
 
 
 def read_config(path):
-    config = {'leia': [], 'escreva': None, 'stemmer': 'nostemmer'}
+    config = {'leia': [], 'escreva': None}
     with open(path, 'r') as file:
         for line in file:
-            line = line.strip()
-            if line == "STEMMER":
-                config['stemmer'] = 'stemmer'
-            elif line == "NOSTEMMER":
-                config['stemmer'] = 'nostemmer'
-            elif '=' in line:
-                if line.startswith('LEIA'):
-                    config['leia'].append(line.split('=')[1].replace('>', '').replace('<', ''))
-                elif line.startswith('ESCREVA'):
-                    config['escreva'] = line.split('=')[1].replace('>', '').replace('<', '')
-                    # config['escreva'] = config['escreva'].split('.')[0]+config['stemmer'].upper()+config['escreva'].split('.')[1]
+            if line.startswith('LEIA'):
+                config['leia'].append(line.strip().split('=')[1].replace('>', '').replace('<', ''))
+            elif line.startswith('ESCREVA'):
+                config['escreva'] = line.strip().split('=')[1].replace('>', '').replace('<', '')
     return config
 
 
@@ -45,7 +35,7 @@ def tokenize(text:str):
 
     return tokens
 
-def parse_xml_to_structured_data(records:dict, xml_path:str, is_stemmer = False):
+def parse_xml_to_structured_data(records:dict, xml_path:str):
     tree = ET.parse(xml_path)
     root = tree.getroot()
 
@@ -58,12 +48,8 @@ def parse_xml_to_structured_data(records:dict, xml_path:str, is_stemmer = False)
         elif extract is not None:
             summary = extract.text
         else:
-            continue
-        tokens = tokenize(summary)
-        if is_stemmer:
-            stemmer = PorterStemmer()
-            tokens=[stemmer.stem(token).upper() for token in tokens]
-        records[record_num] = tokens
+            continue  
+        records[record_num] = tokenize(summary)
     return records
 
 
@@ -80,11 +66,11 @@ def inv_list(docs, path):
     return inverted_index
 
 
-def process_cf(records, xml_path, dtd_path, logger, is_stemmer = False):
+def process_cf(records, xml_path, dtd_path, logger):
     try:
         start_time = time.time()
         if validate_xml(xml_path, dtd_path, logger):
-            records = parse_xml_to_structured_data(records, xml_path, is_stemmer=is_stemmer)
+            records = parse_xml_to_structured_data(records, xml_path)
         logger.info(f"Arquivo processado em {time.time() - start_time:.2f} segundos.")
         return records
     except Exception as e:
@@ -105,7 +91,7 @@ def main():
     for file_name in config['leia']:
         logger.info("Processando o arquivo {0}.".format(file_name))
         xml_path = path + file_name
-        records = process_cf(records, xml_path, dtd_path, logger, is_stemmer=is_stemmer(config))
+        records = process_cf(records, xml_path, dtd_path, logger)
     logger.info(f"Arquivos processados em {time.time() - start_time:.2f} segundos.")
     logger.info("Numero de documentos processads:{}".format(len(records.keys())))
 

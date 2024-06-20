@@ -8,26 +8,13 @@ def check_file_exists(file_path):
         raise FileNotFoundError(f"O arquivo {file_path} não foi encontrado.")
     return True
 
-def is_stemmer(config):
-    if config['stemmer'] == 'stemmer':
-        return True
-    return False
 
 def read_and_process_config(file_path):
-    config = {'stemmer': 'nostemmer'}
+    config = {}
     with open(file_path, 'r') as file:
         for line in file:
-            line = line.strip()
-            if line == "STEMMER":
-                config['stemmer'] = 'stemmer'
-            elif line == "NOSTEMMER":
-                config['stemmer'] = 'nostemmer'
-            elif '=' in line:
-                try:
-                    key, value = line.split('=')
-                    config[key.lower()] = value.replace('>', '').replace('<', '')
-                except ValueError as e:
-                    print(f"Erro ao processar a linha '{line}': {e}")                    
+            key, value = line.strip().split('=')
+            config[key.lower()] = value.replace('>', '').replace('<', '')
     return config
 
 
